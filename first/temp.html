@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        h1 span{
+            display: inline-block;
+        }
+    </style>
+</head>
+<body class="bg-[#111]">
+    <div class="main text-white h-[100vh] w-full flex justify-center items-center">
+        <div>
+            <div class="overflow-con">
+                <h1 class="text-[2.5rem] text-center">Home</h1>
+            </div>
+            <div class="overflow-con">
+                <h1 class="text-[2.5rem] text-center">Design</h1>
+            </div>
+            <div class="overflow-con">
+                <h1 class="text-[2.5rem] text-center">Contact</h1>
+            </div>
+
+        </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    let h1 = document.querySelectorAll(".overflow-con h1");
+    let newh1 = h1.forEach((value)=>{
+        let h1char = value.textContent.split("");
+        value.innerHTML  = h1char.map((elem,key)=>{
+            return `<span class="a">${elem}</span>`;
+        }).join("")
+
+    })
+    let span = document.querySelectorAll("h1 span");
+    gsap.from(span,{
+       y:50,
+        stagger:0.06,
+        duration:0.5,
+        delay:0.5,
+        ease:"power2.out",
+        opacity:0, 
+    })
+    // h1.innerHTML = newh1.join("");
+    // console.log(newh1);
+
+    // gsap.from("h1 .a",{
+    //     y:50,
+    //     stagger:0.3,
+    //     duration:0.5,
+    //     delay:0.5,
+    //     ease:"power3",
+    //     opacity:0,
+    // })
+    // gsap.from("h1 .b",{
+    //     y:-50,
+    //     stagger:-0.3,
+    //     duration:0.5,
+    //     delay:0.5,
+    //     ease:"power3",
+    //     opacity:0,
+    // })
+</script>
+
+</html>
